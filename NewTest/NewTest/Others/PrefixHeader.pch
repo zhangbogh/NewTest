@@ -1,0 +1,38 @@
+
+
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+//系统根基 --- 其实其他已经包含 先放着无伤大雅
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "KINGAllExtension.h"
+#import "KINGAllDefine.h"
+
+
+
+
+//第三方框架
+#import <MJExtension.h>
+#import <YYKit.h>
+#import <XXLazyKitHeader.h>
+#import <Masonry.h>
+
+
+
+#ifdef DEBUG // 处于开发阶段
+#define KDXLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define KDXLog(...)
+#endif
+
+#define isOtherNeedCreatTempData    YES
+#define isNeedCreatTempData         YES//是否需要创建临时数据----------假数据 NO  YES
+
+
+#endif
