@@ -44,7 +44,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   XXLazyKit:
-    :commit: f4699db15d4a94915557e646691e4caec4210ef3
+    :commit: 8fc9ec65bcf19d95c3ccdbeae574ba9bde127fe2
     :git: https://github.com/PittWong/XXLazyKit.git
 
 SPEC CHECKSUMS:
