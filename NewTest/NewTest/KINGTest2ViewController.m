@@ -7,31 +7,30 @@
 //
 
 #import "KINGTest2ViewController.h"
-
+#import <XXLazyKitHeader.h>
 @interface KINGTest2ViewController ()
-
+@property (nonatomic ,weak) XXButtonLikeCell *button;
 @end
 
 @implementation KINGTest2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.button.frame = CGRectMake(100, 100, 200, 50);
+    [self.button addTarget:self action:@selector(buttonClick:) messageSide:XXButtonLikeCellMessageSideRight Title:@"试试主要看箭头" Tag:0];
+    self.button.accessoryType = XXButtonLikeCellAccessoryIndicator;
+    
     // Do any additional setup after loading the view.
 }
-
+- (void)buttonClick:(UIButton *)button {
+    KDXLog(@"点击了按钮%@,tag值是%tu",button.currentTitle,button.tag);
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+XXLazyAnyView(self.view, button, XXButtonLikeCell)
 
 @end

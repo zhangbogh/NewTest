@@ -35,7 +35,7 @@
 
     _demoNameArray = @[@"collectionViewCell中嵌套tableView",
                        @"textField和textView",//textField可以用addtargat添加监控事件    textView需要用代理回调监控事件   键盘研究了下
-                       @"预留",
+                       @"检验自己的框架",
                        @"预留",
                        @"预留",
                        @"预留",

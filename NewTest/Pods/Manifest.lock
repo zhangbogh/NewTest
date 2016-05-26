@@ -23,7 +23,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - XXLazyKit (1.0.1)
+  - XXLazyKit (1.0.2)
   - YYKit (0.9.12):
     - YYKit/no-arc (= 0.9.12)
   - YYKit/no-arc (0.9.12)
@@ -44,7 +44,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   XXLazyKit:
-    :commit: 8fc9ec65bcf19d95c3ccdbeae574ba9bde127fe2
+    :commit: 7c5c43b6451c477f5e5b8f1f5c4c13fc66c1956e
     :git: https://github.com/PittWong/XXLazyKit.git
 
 SPEC CHECKSUMS:
@@ -54,7 +54,7 @@ SPEC CHECKSUMS:
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  XXLazyKit: 13b1f7a0000a805923196b19a71d8307892b85bd
+  XXLazyKit: 876a8cb80891a34286e6531e5335b03f06fdd028
   YYKit: 4c0dfcb4bb3205dfbb172e64ca57a50b1675d545
 
 PODFILE CHECKSUM: 803ea81c4c1ef879f92708b0708f5289ad8305b2

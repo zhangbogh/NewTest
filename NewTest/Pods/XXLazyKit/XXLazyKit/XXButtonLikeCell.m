@@ -6,6 +6,9 @@
 //  Copyright © 2016年 Pitt. All rights reserved.
 //
 
+#define XXLazyKitSrcName(file) [@"XXLazyKit.bundle" stringByAppendingPathComponent:file]
+#define XXLazyKitFrameworkSrcName(file) [@"Frameworks/XXLazyKit.framework/XXLazyKit.bundle" stringByAppendingPathComponent:file]
+
 #import "XXButtonLikeCell.h"
 #import "Masonry.h"
 #import "UIColor+XXExtension.h"
@@ -78,8 +81,10 @@
     _accessoryType = accessoryType;
     
     if (accessoryType == XXButtonLikeCellAccessoryIndicator ) {
+
         UIImageView *imageView = [[UIImageView alloc]init];
-        imageView.image = [UIImage imageNamed:@"XXLazyArrowr"];
+        UIImage *image = [UIImage imageNamed:XXLazyKitSrcName(@"XXLazyArrowr.png")] ?: [UIImage imageNamed:XXLazyKitFrameworkSrcName(@"XXLazyArrowr.png")];
+        imageView.image = image;
         imageView.frame = CGRectMake(0, 0, 7, 11);
         [self setupRightViewSubView:imageView];
         
