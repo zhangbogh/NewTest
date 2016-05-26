@@ -10,11 +10,14 @@
 @property (nonatomic ,weak) UIButton *button;
 
 @property (nonatomic ,weak) UITableView *tableView;
+
 /******************************/
+
+
 XXLazyButton(self.view, button)
 
 XXLazyTableView(self.view, tableView)
-//
+
 ```
 
 ####快速设置控件属性

@@ -27,6 +27,9 @@
 		520895A91CE9A18B002BB7B7 /* KINGTest10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520895A81CE9A18B002BB7B7 /* KINGTest10ViewController.m */; };
 		521EAACB1CEB212900BD8F31 /* KINGLazyCreateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 521EAAC81CEB212900BD8F31 /* KINGLazyCreateView.m */; };
 		521EAACC1CEB212900BD8F31 /* KINGLazySetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 521EAACA1CEB212900BD8F31 /* KINGLazySetView.m */; };
+		525B6CA11CED5C94002AE2C2 /* Address副本 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */; };
+		525B6CA31CED6089002AE2C2 /* 自制版各城市.plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA21CED6089002AE2C2 /* 自制版各城市.plist */; };
+		525B6CA51CED62EC002AE2C2 /* city(省会没前置).plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA41CED62EC002AE2C2 /* city(省会没前置).plist */; };
 		52F228501CE9C471006729E5 /* KINGTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2284F1CE9C471006729E5 /* KINGTestTableViewController.m */; };
 		52F228561CE9CE79006729E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F228531CE9CE79006729E5 /* AppDelegate.m */; };
 		52F228581CE9CE79006729E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F228551CE9CE79006729E5 /* main.m */; };
@@ -126,6 +129,9 @@
 		521EAAC81CEB212900BD8F31 /* KINGLazyCreateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGLazyCreateView.m; sourceTree = "<group>"; };
 		521EAAC91CEB212900BD8F31 /* KINGLazySetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINGLazySetView.h; sourceTree = "<group>"; };
 		521EAACA1CEB212900BD8F31 /* KINGLazySetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGLazySetView.m; sourceTree = "<group>"; };
+		525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Address副本 2.plist"; sourceTree = "<group>"; };
+		525B6CA21CED6089002AE2C2 /* 自制版各城市.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "自制版各城市.plist"; sourceTree = "<group>"; };
+		525B6CA41CED62EC002AE2C2 /* city(省会没前置).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "city(省会没前置).plist"; sourceTree = "<group>"; };
 		52F2284E1CE9C471006729E5 /* KINGTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINGTestTableViewController.h; sourceTree = "<group>"; };
 		52F2284F1CE9C471006729E5 /* KINGTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGTestTableViewController.m; sourceTree = "<group>"; };
 		52F228521CE9CE79006729E5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -328,6 +334,9 @@
 		52482F541CEC0A090094734A /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				525B6CA41CED62EC002AE2C2 /* city(省会没前置).plist */,
+				525B6CA21CED6089002AE2C2 /* 自制版各城市.plist */,
+				525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */,
 				520895521CE98BD9002BB7B7 /* ViewController.h */,
 				520895531CE98BD9002BB7B7 /* ViewController.m */,
 				520895891CE9A110002BB7B7 /* KINGTest0ViewController.h */,
@@ -610,9 +619,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F2285A1CE9CF0C006729E5 /* Info.plist in Resources */,
+				525B6CA31CED6089002AE2C2 /* 自制版各城市.plist in Resources */,
 				5208955C1CE98BD9002BB7B7 /* LaunchScreen.storyboard in Resources */,
 				520895591CE98BD9002BB7B7 /* Assets.xcassets in Resources */,
+				525B6CA51CED62EC002AE2C2 /* city(省会没前置).plist in Resources */,
 				52F228DD1CE9D55B006729E5 /* trade.bundle in Resources */,
+				525B6CA11CED5C94002AE2C2 /* Address副本 2.plist in Resources */,
 				520895571CE98BD9002BB7B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,8 +5,8 @@
 
 #if __has_include(<XXLazyKit/XXLazyKitHeader.h>)
 
-FOUNDATION_EXPORT double XXKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char XXKitVersionString[];
+//FOUNDATION_EXPORT double XXKitVersionNumber;
+//FOUNDATION_EXPORT const unsigned char XXKitVersionString[];
 
 #import <XXLazyKit/NSDate+XXExtension.h>
 #import <XXLazyKit/NSString+XXExtension.h>
@@ -19,6 +19,9 @@ FOUNDATION_EXPORT const unsigned char XXKitVersionString[];
 
 #import <XXLazyKit/XXLazySetView.h>
 #import <XXLazyKit/XXLazyCreateView.h>
+
+#import <XXLazyKit/XXButtonReplaceCell.h>
+
 
 
 #else
@@ -34,6 +37,8 @@ FOUNDATION_EXPORT const unsigned char XXKitVersionString[];
 
 #import "XXLazySetView.h"
 #import "XXLazyCreateView.h"
+
+#import "XXButtonReplaceCell.h"
 
 
 
