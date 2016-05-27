@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.navigationController.automaticallyAdjustsScrollViewInsets = NO;
-    
+    //test;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.itemSize = CGSizeMake(200, 200);
     layout.minimumLineSpacing = 0;
