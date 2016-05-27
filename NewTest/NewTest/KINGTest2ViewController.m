@@ -8,6 +8,7 @@
 
 #import "KINGTest2ViewController.h"
 #import <XXLazyKitHeader.h>
+#import <UIImageView+WebCache.h>
 @interface KINGTest2ViewController ()
 @property (nonatomic ,weak) XXButtonLikeCell *button;
 @end
@@ -19,7 +20,6 @@
     self.button.frame = CGRectMake(100, 100, 200, 50);
     [self.button addTarget:self action:@selector(buttonClick:) messageSide:XXButtonLikeCellMessageSideRight Title:@"试试主要看箭头" Tag:0];
     self.button.accessoryType = XXButtonLikeCellAccessoryIndicator;
-    
     // Do any additional setup after loading the view.
 }
 - (void)buttonClick:(UIButton *)button {
