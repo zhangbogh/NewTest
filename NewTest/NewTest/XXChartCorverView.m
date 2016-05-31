@@ -10,6 +10,7 @@
 
 @interface XXChartCorverView ()
 @property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, assign) NSInteger timeCount;
 @end
 
 @implementation XXChartCorverView
@@ -39,13 +40,13 @@
         [path stroke];
     }
 
-    static int i = 0;
-    CGRect rectClear = CGRectMake(0, 0, i*3, 250);
-    if (i*3>=self.width) {
+    CGRect rectClear = CGRectMake(0, 0, self.timeCount*3, 250);
+    if (self.timeCount*3>=self.width) {
         [self.displayLink invalidate];
         self.displayLink = nil;
+        [self removeFromSuperview];
     }
-    i++;
+    self.timeCount++;
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     CGContextClearRect(ctx, rectClear);
