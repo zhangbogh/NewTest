@@ -38,7 +38,7 @@
                        @"检验自己的框架",
                        @"预留",
                        @"预留",
-                       @"预留",
+                       @"折线统计图",
                        @"预留",
                        @"预留",
                        @"预留",
@@ -61,7 +61,7 @@
                              @"KINGTest2ViewController",
                              @"KINGTest3ViewController",
                              @"KINGTest4ViewController",
-                             @"KINGTest5ViewController",
+                             @"KINGTest5ViewController",//折线统计图
                              @"KINGTest6ViewController",
                              @"KINGTest7ViewController",
                              @"KINGTest8ViewController",

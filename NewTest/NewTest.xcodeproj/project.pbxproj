@@ -69,6 +69,8 @@
 		52F2291D1CE9DC54006729E5 /* KINGEditStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F229171CE9DC54006729E5 /* KINGEditStringView.m */; };
 		52F2291E1CE9DC54006729E5 /* KINGEditSwichView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F229191CE9DC54006729E5 /* KINGEditSwichView.m */; };
 		53529115C83DA57F9869B5D4 /* libPods-NewTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F07DDB91C9351B7399E258EF /* libPods-NewTest.a */; };
+		844D5DDF1CFDC695004BC5C3 /* XXChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D5DDE1CFDC695004BC5C3 /* XXChartView.m */; };
+		844D5DE21CFDD731004BC5C3 /* XXChartCorverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D5DE11CFDD731004BC5C3 /* XXChartCorverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +214,10 @@
 		52F229171CE9DC54006729E5 /* KINGEditStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGEditStringView.m; sourceTree = "<group>"; };
 		52F229181CE9DC54006729E5 /* KINGEditSwichView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINGEditSwichView.h; sourceTree = "<group>"; };
 		52F229191CE9DC54006729E5 /* KINGEditSwichView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGEditSwichView.m; sourceTree = "<group>"; };
+		844D5DDD1CFDC694004BC5C3 /* XXChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXChartView.h; sourceTree = "<group>"; };
+		844D5DDE1CFDC695004BC5C3 /* XXChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXChartView.m; sourceTree = "<group>"; };
+		844D5DE01CFDD731004BC5C3 /* XXChartCorverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXChartCorverView.h; sourceTree = "<group>"; };
+		844D5DE11CFDD731004BC5C3 /* XXChartCorverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXChartCorverView.m; sourceTree = "<group>"; };
 		9C5D1AD6CD5EC9514910BA10 /* Pods-NewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewTest/Pods-NewTest.release.xcconfig"; sourceTree = "<group>"; };
 		BCF39E4FFACA85DC31F457BD /* Pods-NewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewTest/Pods-NewTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F07DDB91C9351B7399E258EF /* libPods-NewTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +291,10 @@
 		5208954B1CE98BD9002BB7B7 /* NewTest */ = {
 			isa = PBXGroup;
 			children = (
+				844D5DDD1CFDC694004BC5C3 /* XXChartView.h */,
+				844D5DDE1CFDC695004BC5C3 /* XXChartView.m */,
+				844D5DE01CFDD731004BC5C3 /* XXChartCorverView.h */,
+				844D5DE11CFDD731004BC5C3 /* XXChartCorverView.m */,
 				52482F541CEC0A090094734A /* TestVC */,
 				52F229041CE9D82E006729E5 /* Define */,
 				52F2285C1CE9D55B006729E5 /* Utility */,
@@ -703,6 +713,7 @@
 				52F228D01CE9D55B006729E5 /* KINGAllExtension.m in Sources */,
 				521EAACB1CEB212900BD8F31 /* KINGLazyCreateView.m in Sources */,
 				52F228DA1CE9D55B006729E5 /* UIWindow+Extension.m in Sources */,
+				844D5DE21CFDD731004BC5C3 /* XXChartCorverView.m in Sources */,
 				520895851CE9A09D002BB7B7 /* KINGTestBaseViewController.m in Sources */,
 				52F228D61CE9D55B006729E5 /* UIFont+Extension.m in Sources */,
 				52F228E51CE9D55B006729E5 /* KINGSimpleItemViewLikeCell.m in Sources */,
@@ -735,6 +746,7 @@
 				52F228D91CE9D55B006729E5 /* UIView+Extension.m in Sources */,
 				520895971CE9A14E002BB7B7 /* KINGTest4ViewController.m in Sources */,
 				52F2291C1CE9DC54006729E5 /* KINGEditStringMoreLinesView.m in Sources */,
+				844D5DDF1CFDC695004BC5C3 /* XXChartView.m in Sources */,
 				52F228ED1CE9D55B006729E5 /* KINGUpDownLabCircleButton.m in Sources */,
 				520895911CE9A13B002BB7B7 /* KINGTest2ViewController.m in Sources */,
 				52F228D31CE9D55B006729E5 /* UIBarButtonItem+Extension.m in Sources */,
