@@ -32,36 +32,22 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
 
-    _demoNameArray = @[@"collectionViewCell中嵌套tableView",
-                       @"textField和textView",//textField可以用addtargat添加监控事件    textView需要用代理回调监控事件   键盘研究了下
-                       @"检验自己的框架",
-                       @"hud+网络连接检查",
-                       @"折线统计图",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留",
-                       @"预留"];
+    _demoNameArray = @[@"0.collectionViewCell中嵌套tableView",
+                       @"1.textField和textView",//textField可以用addtargat添加监控事件    textView需要用代理回调监控事件   键盘研究了下
+                       @"2.检验自己的框架",
+                       @"3.hud+网络连接检查",
+                       @"4.折线统计图",
+                       @"5.预留",
+                       @"6.预留",
+                       @"7.预留",
+                       @"8.预留",
+                       @"9.预留",
+                       @"10.预留"];
     
     _viewControllerArray = @[@"KINGTest0ViewController",
                              @"KINGTest1ViewController",
                              @"KINGTest2ViewController",
                              @"KINGTest3ViewController",//hud+网络连接检查
-                             @"KINGTest4ViewController",//折线统计图
-                             @"KINGTest5ViewController",
-                             @"KINGTest3ViewController",
                              @"KINGTest4ViewController",
                              @"KINGTest5ViewController",//折线统计图
                              @"KINGTest6ViewController",
