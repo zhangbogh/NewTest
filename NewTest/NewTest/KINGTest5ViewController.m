@@ -7,22 +7,31 @@
 //
 
 #import "KINGTest5ViewController.h"
+#import "XXChartView.h"
+#import "XXChartCorverView.h"
 
 @interface KINGTest5ViewController ()
-
+@property (nonatomic ,weak) XXChartView *chartView;
+@property (nonatomic ,weak) XXChartCorverView *chartCorverView;
 @end
 
 @implementation KINGTest5ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.chartView.frame = CGRectMake(0, 64, self.view.width, self.view.height - 64);
+    self.chartCorverView.frame = CGRectMake(0, 64, self.view.width, self.view.height - 64);
+    self.chartView.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+XXLazyAnyView(self.view, chartView, XXChartView)
+XXLazyAnyView(self.view, chartCorverView, XXChartCorverView)
 
 /*
 #pragma mark - Navigation

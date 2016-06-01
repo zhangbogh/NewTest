@@ -61,6 +61,9 @@
                              @"KINGTest3ViewController",//hud+网络连接检查
                              @"KINGTest4ViewController",//折线统计图
                              @"KINGTest5ViewController",
+                             @"KINGTest3ViewController",
+                             @"KINGTest4ViewController",
+                             @"KINGTest5ViewController",//折线统计图
                              @"KINGTest6ViewController",
                              @"KINGTest7ViewController",
                              @"KINGTest8ViewController",
