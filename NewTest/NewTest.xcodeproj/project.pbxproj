@@ -30,6 +30,8 @@
 		525B6CA11CED5C94002AE2C2 /* Address副本 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */; };
 		525B6CA31CED6089002AE2C2 /* 自制版各城市.plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA21CED6089002AE2C2 /* 自制版各城市.plist */; };
 		525B6CA51CED62EC002AE2C2 /* city(省会没前置).plist in Resources */ = {isa = PBXBuildFile; fileRef = 525B6CA41CED62EC002AE2C2 /* city(省会没前置).plist */; };
+		528DB62A1CFD625000570B92 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 528DB6291CFD625000570B92 /* Reachability.m */; };
+		528DB62C1CFD649A00570B92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528DB62B1CFD649A00570B92 /* SystemConfiguration.framework */; };
 		52F228501CE9C471006729E5 /* KINGTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2284F1CE9C471006729E5 /* KINGTestTableViewController.m */; };
 		52F228561CE9CE79006729E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F228531CE9CE79006729E5 /* AppDelegate.m */; };
 		52F228581CE9CE79006729E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F228551CE9CE79006729E5 /* main.m */; };
@@ -132,6 +134,9 @@
 		525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Address副本 2.plist"; sourceTree = "<group>"; };
 		525B6CA21CED6089002AE2C2 /* 自制版各城市.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "自制版各城市.plist"; sourceTree = "<group>"; };
 		525B6CA41CED62EC002AE2C2 /* city(省会没前置).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "city(省会没前置).plist"; sourceTree = "<group>"; };
+		528DB6281CFD625000570B92 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		528DB6291CFD625000570B92 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		528DB62B1CFD649A00570B92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		52F2284E1CE9C471006729E5 /* KINGTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINGTestTableViewController.h; sourceTree = "<group>"; };
 		52F2284F1CE9C471006729E5 /* KINGTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINGTestTableViewController.m; sourceTree = "<group>"; };
 		52F228521CE9CE79006729E5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528DB62C1CFD649A00570B92 /* SystemConfiguration.framework in Frameworks */,
 				53529115C83DA57F9869B5D4 /* libPods-NewTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +252,7 @@
 		285464E968FDA85B4A2D9ED2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				528DB62B1CFD649A00570B92 /* SystemConfiguration.framework */,
 				F07DDB91C9351B7399E258EF /* libPods-NewTest.a */,
 			);
 			name = Frameworks;
@@ -286,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				52482F541CEC0A090094734A /* TestVC */,
+				528DB64E1CFDA57400570B92 /* TextView */,
 				52F229041CE9D82E006729E5 /* Define */,
 				52F2285C1CE9D55B006729E5 /* Utility */,
 				52F228511CE9CE79006729E5 /* Others */,
@@ -339,6 +347,8 @@
 				525B6CA01CED5C94002AE2C2 /* Address副本 2.plist */,
 				520895521CE98BD9002BB7B7 /* ViewController.h */,
 				520895531CE98BD9002BB7B7 /* ViewController.m */,
+				528DB6281CFD625000570B92 /* Reachability.h */,
+				528DB6291CFD625000570B92 /* Reachability.m */,
 				520895891CE9A110002BB7B7 /* KINGTest0ViewController.h */,
 				5208958A1CE9A110002BB7B7 /* KINGTest0ViewController.m */,
 				5208958C1CE9A11A002BB7B7 /* KINGTest1ViewController.h */,
@@ -371,6 +381,13 @@
 				521EAACA1CEB212900BD8F31 /* KINGLazySetView.m */,
 			);
 			name = TestVC;
+			sourceTree = "<group>";
+		};
+		528DB64E1CFDA57400570B92 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TextView;
 			sourceTree = "<group>";
 		};
 		52F228511CE9CE79006729E5 /* Others */ = {
@@ -724,6 +741,7 @@
 				52F228DB1CE9D55B006729E5 /* KINGInputView.m in Sources */,
 				520895A01CE9A16C002BB7B7 /* KINGTest7ViewController.m in Sources */,
 				52F228E11CE9D55B006729E5 /* KINGImageTitleRightTitleViewLickCell.m in Sources */,
+				528DB62A1CFD625000570B92 /* Reachability.m in Sources */,
 				52F228DC1CE9D55B006729E5 /* KINGKeyboardView.m in Sources */,
 				5208958B1CE9A110002BB7B7 /* KINGTest0ViewController.m in Sources */,
 				52F228D11CE9D55B006729E5 /* NSDate+Extension.m in Sources */,

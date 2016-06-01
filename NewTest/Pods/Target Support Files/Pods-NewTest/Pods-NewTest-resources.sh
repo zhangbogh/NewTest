@@ -80,9 +80,11 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "XXLazyKit/XXLazyKit/XXLazyKit.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "XXLazyKit/XXLazyKit/XXLazyKit.bundle"
 fi
 

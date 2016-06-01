@@ -24,7 +24,6 @@
 {
     [super viewDidLoad];
     self.title = @"新功能尝试专区";
-    self.view.height;
     UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -36,8 +35,8 @@
     _demoNameArray = @[@"collectionViewCell中嵌套tableView",
                        @"textField和textView",//textField可以用addtargat添加监控事件    textView需要用代理回调监控事件   键盘研究了下
                        @"检验自己的框架",
-                       @"预留",
-                       @"预留",
+                       @"hud+网络连接检查",
+                       @"折线统计图",
                        @"预留",
                        @"预留",
                        @"预留",
@@ -59,8 +58,8 @@
     _viewControllerArray = @[@"KINGTest0ViewController",
                              @"KINGTest1ViewController",
                              @"KINGTest2ViewController",
-                             @"KINGTest3ViewController",
-                             @"KINGTest4ViewController",
+                             @"KINGTest3ViewController",//hud+网络连接检查
+                             @"KINGTest4ViewController",//折线统计图
                              @"KINGTest5ViewController",
                              @"KINGTest6ViewController",
                              @"KINGTest7ViewController",
