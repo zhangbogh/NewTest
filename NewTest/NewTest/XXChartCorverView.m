@@ -9,23 +9,27 @@
 #import "XXChartCorverView.h"
 
 @interface XXChartCorverView ()
+@property (nonatomic ,assign) BOOL animation;
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, assign) NSInteger timeCount;
 @end
 
 @implementation XXChartCorverView
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink)];
-        [self.displayLink addToRunLoop: [NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+
+- (instancetype)initWithAnimation:(BOOL)animation {
+    _animation = animation;
+    if (self = [self init]) {
+        self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.99999];
+        if (animation) {
+            self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink)];
+            [self.displayLink addToRunLoop: [NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        }
     }
     return self;
 }
+
 - (void)handleDisplayLink {
-    self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.99];
     [self setNeedsDisplay];
 }
 // Only override drawRect: if you perform custom drawing.
@@ -36,7 +40,7 @@
         [path moveToPoint:CGPointMake(30, 200 / 5 * i + 50)];
         [path addLineToPoint:CGPointMake(300, 200 / 5 * i + 50)];
         [[UIColor greenColor]setStroke];
-        path.lineWidth = 2;
+        path.lineWidth = 0.5;
         [path stroke];
     }
 

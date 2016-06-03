@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface XXChartCorverView : UIView
-
+- (instancetype)initWithAnimation:(BOOL)animation;
 @end

@@ -7,12 +7,17 @@
 //
 
 #import "XXChartView.h"
+#import "XXChartCorverView.h"
 
 @interface XXChartView ()
 @property (nonatomic, strong) NSArray *values;
 @property (nonatomic, assign) CGFloat marginX;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) NSInteger Vcount;
+@property (nonatomic ,weak) XXChartCorverView *baseChartCorverView;
+@property (nonatomic ,weak) XXChartCorverView *chartCorverView;
+
+
 
 @end
 
@@ -33,23 +38,38 @@
         self.marginX = 20;
         self.height = 200;
         self.Vcount = 5;
+        XXChartCorverView *baseChartCorverView = [[XXChartCorverView alloc]initWithAnimation:NO];
+        [self addSubview:baseChartCorverView];
+        self.baseChartCorverView = baseChartCorverView;
+        
+        XXChartCorverView *chartCorverView = [[XXChartCorverView alloc]initWithAnimation:YES];
+        [self addSubview:chartCorverView];
+        self.chartCorverView = chartCorverView;
     }
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.baseChartCorverView.frame = self.bounds;
+    self.baseChartCorverView.backgroundColor = [UIColor clearColor];
+//    [self.superview bringSubviewToFront:self];
+    [self.superview sendSubviewToBack:self.baseChartCorverView];
+    
+    self.chartCorverView.frame = self.bounds;
+
+}
 - (void)drawRect:(CGRect)rect {
-    for (int i = 0; i<self.Vcount; i++) {
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(30, self.height / self.Vcount * i + 50)];
-        [path addLineToPoint:CGPointMake(300, self.height / self.Vcount * i + 50)];
-        [[UIColor greenColor]setStroke];
-        path.lineWidth = 2;
-        [path stroke];
-    }
+//    for (int i = 0; i<self.Vcount; i++) {
+//        UIBezierPath *path = [UIBezierPath bezierPath];
+//        [path moveToPoint:CGPointMake(30, self.height / self.Vcount * i + 50)];
+//        [path addLineToPoint:CGPointMake(300, self.height / self.Vcount * i + 50)];
+//        [[UIColor greenColor]setStroke];
+//        path.lineWidth = 2;
+//        [path stroke];
+//    }
     
-    
-    
-    
+
     UIBezierPath *linePath = [UIBezierPath bezierPath];
 
     [self.values enumerateObjectsUsingBlock:^(NSNumber *number, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -65,7 +85,7 @@
     
     [linePath addLineToPoint:CGPointMake(32.5 + (self.values.count - 1) * self.marginX , self.height)];
     [linePath addLineToPoint:CGPointMake(32.5, self.height)];
-    [[UIColor lightGrayColor]set];
+    [[UIColor colorWithRed:0 green:0 blue:0.9 alpha:0.5]set];
     [linePath fill];
     
     [self.values enumerateObjectsUsingBlock:^(NSNumber *number, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -77,7 +97,9 @@
     
 }
 
-
+//XXLazyAnyView(self.superview, baseChartCorverView, XXChartCorverView)
+//
+//XXLazyAnyView(self, chartCorverView, XXChartCorverView)
 
 
 
