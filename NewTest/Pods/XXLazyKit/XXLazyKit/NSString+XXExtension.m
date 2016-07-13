@@ -67,5 +67,52 @@
     return result;
 }
 
+- (NSString *)MD5UpperString {
+    return [[self md5String]uppercaseString];
+}
 
+- (NSString *)MD5LowerString {
+    return [[self md5String]lowercaseString];
+}
+
+
+- (BOOL)isHaveString {
+    return self!=nil&&self.length>0&&![self isEqualToString: @"null"];
+}
+
+- (NSString *)pinyinString {
+    NSMutableString *mutableString = [NSMutableString stringWithString:self];
+    CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformStripDiacritics, false);
+    
+    NSString *newstr = [mutableString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return newstr;
+}
+
++ (instancetype)pinyinStringWithSting:(NSString *)string {
+    return [string pinyinString];
+}
+
+//删除aString和bString之间内容 包括aString和bString
+
+- (NSString *)removeStringBetweenString:(NSString *)aString andString:(NSString *)bString {
+    NSString *resultString = self;
+    NSScanner *theScanner;
+    NSString *text = nil;
+    
+    theScanner = [NSScanner scannerWithString:self];
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:aString intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:bString intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        resultString = [resultString stringByReplacingOccurrencesOfString:
+                [NSString stringWithFormat:@"%@%@", text,bString]
+                                               withString:@""];
+    } 
+    
+    return resultString;
+}
 @end

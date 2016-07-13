@@ -35,4 +35,16 @@
 
 - (NSString *)md5String;
 
+- (NSString *)MD5UpperString;
+
+- (NSString *)MD5LowerString;
+
+- (BOOL)isHaveString;
+
+- (NSString *)pinyinString;
+
++ (instancetype)pinyinStringWithSting:(NSString *)string;
+
+//删除aString和bString之间内容 包括aString和bString
+- (NSString *)removeStringBetweenString:(NSString *)aString andString:(NSString *)bString;
 @end

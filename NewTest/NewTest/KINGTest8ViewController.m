@@ -7,15 +7,25 @@
 //
 
 #import "KINGTest8ViewController.h"
+#import <POP.h>
 
 @interface KINGTest8ViewController ()
-
+@property (nonatomic ,weak) UIView *testView;
 @end
 
 @implementation KINGTest8ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.testView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+    self.testView.backgroundColor = [UIColor redColor];
+    
+    
+    
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 

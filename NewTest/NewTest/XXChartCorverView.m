@@ -35,27 +35,59 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    for (int i = 0; i<5; i++) {
+    CGFloat width = self.bounds.size.width;
+    CGFloat height = self.bounds.size.height;
+    
+    //画轴线
+    [self.axisColor setStroke];
+    CGFloat xAxisX = 0.1*width;
+    CGFloat xAxisY = 0.8*height;
+    CGFloat xAxisWidth = 0.8*width;
+    UIBezierPath *xAxis = [UIBezierPath bezierPath];
+    [xAxis moveToPoint:CGPointMake(xAxisX , xAxisY)];
+    [xAxis addLineToPoint:CGPointMake(xAxisX + xAxisWidth, xAxisY)];
+    xAxis.lineWidth = 1;
+    [xAxis stroke];
+    
+    CGFloat yAxisX = 0.15*width;
+    CGFloat yAxisY = 0.05*height;
+    CGFloat yAxisHeight = 0.9*width;
+    UIBezierPath *yAxis = [UIBezierPath bezierPath];
+    [yAxis moveToPoint:CGPointMake(yAxisX, yAxisY)];
+    [yAxis addLineToPoint:CGPointMake(yAxisX, yAxisY + yAxisHeight)];
+    yAxis.lineWidth = 1;
+    [yAxis stroke];
+    
+    CGFloat yTittleMargin = (xAxisY - yAxisY)/(self.yTittleCount + 1);
+    for (int i = 0; i < self.yTittleCount; i++) {
+        //绘制背景横线
+        [self.backLineColor setStroke];//设置背景网格颜色
+        CGFloat x = yAxisX;
+        CGFloat y = yTittleMargin * (i + 1) + yAxisY;
         UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(30, 200 / 5 * i + 50)];
-        [path addLineToPoint:CGPointMake(300, 200 / 5 * i + 50)];
-        [[UIColor greenColor]setStroke];
-        path.lineWidth = 0.5;
+        [path moveToPoint:CGPointMake(x, y)];
+        [path addLineToPoint:CGPointMake(xAxisX + xAxisWidth, y)];
+        path.lineWidth = 1;
         [path stroke];
     }
-
-    CGRect rectClear = CGRectMake(0, 0, self.timeCount*3, 250);
-    if (self.timeCount*3>=self.width) {
-        [self.displayLink invalidate];
-        self.displayLink = nil;
-        [self removeFromSuperview];
-    }
-    self.timeCount++;
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    CGContextClearRect(ctx, rectClear);
-
-
+    
+    CGFloat margin = 10;
+    CGFloat xTittleMargin = (xAxisX + xAxisWidth - yAxisX - 2 * margin)/(self.xTittles.count - 1);
+    
+    [self.xTittles enumerateObjectsUsingBlock:^(NSString *xTittle, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        //绘制背景纵线
+        [self.backLineColor set];
+        CGFloat x = yAxisX + margin + xTittleMargin * idx;
+        CGFloat backLineY = (xAxisY - yAxisY)/(self.yTittleCount + 1) + yAxisY - margin;
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(x, backLineY)];
+        [path addLineToPoint:CGPointMake(x, xAxisY)];
+        path.lineWidth = 1;
+        [path stroke];
+    }];
+    
 }
 
 

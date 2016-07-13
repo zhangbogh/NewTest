@@ -7,162 +7,192 @@
 //
 
 #import "XXChartView.h"
-#import "XXChartCorverView.h"
 
 @interface XXChartView ()
-@property (nonatomic, strong) NSArray *values;
-@property (nonatomic, assign) CGFloat marginX;
-@property (nonatomic, assign) CGFloat height;
-@property (nonatomic, assign) NSInteger Vcount;
-@property (nonatomic ,weak) XXChartCorverView *baseChartCorverView;
-@property (nonatomic ,weak) XXChartCorverView *chartCorverView;
 
 
+
+@property (nonatomic, strong) NSArray *yTittles;
 
 @end
 
 @implementation XXChartView
 
++ (instancetype)chartViewWithValues:(NSArray *)values xTittles:(NSArray *)xTittles yTittleCount:(NSInteger)yTittleCount {
+    return [[self alloc]initWithValues:values xTittles:xTittles yTittleCount:yTittleCount];
+}
+- (instancetype)initWithValues:(NSArray *)values xTittles:(NSArray *)xTittles yTittleCount:(NSInteger)yTittleCount {
+    self = [self init];
+    if (self) {
+        self.values = values;
+        self.xTittles = xTittles;
+        self.yTittleCount = yTittleCount;
+    }
+    return self;
+}
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i<20; i++) {
-            int j = random() % 100 + 30;
-            NSNumber *number = [NSNumber numberWithInt:j];
-            [array addObject:number];
-        }
-        self.values = array;
-        self.marginX = 20;
-        self.height = 200;
-        self.Vcount = 5;
-        XXChartCorverView *baseChartCorverView = [[XXChartCorverView alloc]initWithAnimation:NO];
-        [self addSubview:baseChartCorverView];
-        self.baseChartCorverView = baseChartCorverView;
         
-        XXChartCorverView *chartCorverView = [[XXChartCorverView alloc]initWithAnimation:YES];
-        [self addSubview:chartCorverView];
-        self.chartCorverView = chartCorverView;
+        self.yTittleCount = 4;
+        self.xTittles = @[@"标题1",@"标题2",@"标题3",@"标题4",@"标题5",@"标题6",@"标题7"];
+        self.values = @[@5.6,@7.8,@6,@8.5,@3,@7];
     }
+    
+    self.tintColor = [UIColor kdxBlueColor];
+    self.axisTitleColor = [UIColor xxTextColor333333];
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.baseChartCorverView.frame = self.bounds;
-    self.baseChartCorverView.backgroundColor = [UIColor clearColor];
-//    [self.superview bringSubviewToFront:self];
-    [self.superview sendSubviewToBack:self.baseChartCorverView];
-    
-    self.chartCorverView.frame = self.bounds;
-
+- (void)setTintColor:(UIColor *)tintColor {
+    _tintColor = tintColor;
+    self.axisColor = tintColor;
+    self.backLineColor = [tintColor colorWithAlphaComponent:0.1];
+    self.circleColor = tintColor;
+    self.lineColor = [tintColor colorWithAlphaComponent:0.7];
+    self.downColor = [tintColor colorWithAlphaComponent:0.05];
 }
-- (void)drawRect:(CGRect)rect {
-//    for (int i = 0; i<self.Vcount; i++) {
-//        UIBezierPath *path = [UIBezierPath bezierPath];
-//        [path moveToPoint:CGPointMake(30, self.height / self.Vcount * i + 50)];
-//        [path addLineToPoint:CGPointMake(300, self.height / self.Vcount * i + 50)];
-//        [[UIColor greenColor]setStroke];
-//        path.lineWidth = 2;
-//        [path stroke];
-//    }
-    
-
-    UIBezierPath *linePath = [UIBezierPath bezierPath];
-
-    [self.values enumerateObjectsUsingBlock:^(NSNumber *number, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx == 0) {
-            [linePath moveToPoint:CGPointMake(30 + 2.5, self.height - number.integerValue + 2.5)];
+- (void)setValues:(NSArray *)values {
+    _values = values;
+    NSInteger maxNum = [values[0] integerValue];
+    for (NSNumber *number in values) {
+        if (maxNum < number.integerValue) {
+            maxNum = number.integerValue;
+        }
+    }
+    NSInteger marginYTittleNum = 0;
+    for (int i = 1; maxNum/self.yTittleCount/i >= 1 ; i *=10) {
+        if (maxNum % (i *self.yTittleCount) == 0) {
+            marginYTittleNum = (maxNum / self.yTittleCount/i)*i;
         }else {
-            [linePath addLineToPoint:CGPointMake(32.5 + idx * self.marginX , self.height - number.integerValue + 2.5)];
+            marginYTittleNum = (maxNum / self.yTittleCount/i)*i + i;
+        }
+    }
+
+    NSMutableArray *yTittles = [NSMutableArray array];
+    for (NSInteger i = self.yTittleCount; i > 0; i--) {
+        NSString *yTittle = [NSString stringWithFormat:@"%tu",marginYTittleNum * i];
+        [yTittles addObject:yTittle];
+    }
+    self.yTittles = yTittles;
+}
+
+
+- (void)drawRect:(CGRect)rect {
+    CGFloat width = self.bounds.size.width;
+    CGFloat height = self.bounds.size.height;
+    
+    //画轴线
+    [self.axisColor setStroke];
+    CGFloat xAxisX = 0.1*width;
+    CGFloat xAxisY = 0.8*height;
+    CGFloat xAxisWidth = 0.8*width;
+    UIBezierPath *xAxis = [UIBezierPath bezierPath];
+    [xAxis moveToPoint:CGPointMake(xAxisX , xAxisY)];
+    [xAxis addLineToPoint:CGPointMake(xAxisX + xAxisWidth, xAxisY)];
+    xAxis.lineWidth = 1;
+    [xAxis stroke];
+    
+    CGFloat yAxisX = 0.15*width;
+    CGFloat yAxisY = 0.05*height;
+    CGFloat yAxisHeight = 0.9*height;
+    UIBezierPath *yAxis = [UIBezierPath bezierPath];
+    [yAxis moveToPoint:CGPointMake(yAxisX, yAxisY)];
+    [yAxis addLineToPoint:CGPointMake(yAxisX, yAxisY + yAxisHeight)];
+    yAxis.lineWidth = 1;
+    [yAxis stroke];
+
+    CGFloat yTittleMargin = (xAxisY - yAxisY)/(self.yTittleCount + 1);
+    for (int i = 0; i < self.yTittleCount; i++) {
+        //绘制背景横线
+        [self.backLineColor setStroke];//设置背景网格颜色
+        CGFloat x = yAxisX;
+        CGFloat y = yTittleMargin * (i + 1) + yAxisY;
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(x, y)];
+        [path addLineToPoint:CGPointMake(xAxisX + xAxisWidth, y)];
+        path.lineWidth = 1;
+        [path stroke];
+        
+        //y轴标题
+        NSString *str = self.yTittles[i];
+        CGSize strSize = [str sizeWithFont:[UIFont systemFontOfSize:10]];
+        [str drawInRect:CGRectMake(yAxisX - strSize.width - 3, y - strSize.height/2, strSize.width, strSize.height)
+         withAttributes:@{NSForegroundColorAttributeName : self.axisTitleColor,
+                          NSFontAttributeName            : [UIFont systemFontOfSize:10]}];
+    }
+    
+    
+    
+    UIBezierPath *linePath = [UIBezierPath bezierPath];
+    CGFloat margin = 10;
+    CGFloat xTittleMargin = (xAxisX + xAxisWidth - yAxisX - 2 * margin)/(self.xTittles.count - 1);
+
+    [self.xTittles enumerateObjectsUsingBlock:^(NSString *xTittle, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        //绘制背景纵线
+        [self.backLineColor set];
+        CGFloat x = yAxisX + margin + xTittleMargin * idx;
+        CGFloat backLineY = (xAxisY - yAxisY)/(self.yTittleCount + 1) + yAxisY - margin;
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(x, backLineY)];
+        [path addLineToPoint:CGPointMake(x, xAxisY)];
+        path.lineWidth = 1;
+        [path stroke];
+        
+        //x轴标题
+        CGSize strSize = [xTittle sizeWithFont:[UIFont systemFontOfSize:10]];
+        [xTittle drawInRect:CGRectMake(x - strSize.width/2, xAxisY + 3, strSize.width, 20)
+             withAttributes:@{NSForegroundColorAttributeName  : self.axisTitleColor,
+                              NSFontAttributeName             : [UIFont systemFontOfSize:10]}];
+        
+        if (idx < self.values.count) {
+            //画圆
+            NSNumber *number = self.values[idx];
+            CGFloat y = xAxisY - (number.floatValue / [self.yTittles[0] integerValue] * yTittleMargin * self.yTittleCount);
+            
+            [self.circleColor set];//圆的颜色
+            UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(x - 2.5, y - 2.5, 5, 5)];
+            [circle fill];
+            
+            //设置line关键节点
+            if (idx == 0) {
+                [linePath moveToPoint:CGPointMake(x , y)];
+            }else {
+                [linePath addLineToPoint:CGPointMake(x , y)];
+            }
+            
+            //最近一个显示数值
+            if (idx == self.values.count - 1) {
+                NSString *lastNumString = [NSString stringWithFormat:@"%.02f",[self.values[idx] floatValue]];
+                CGSize strSize = [lastNumString sizeWithFont:[UIFont systemFontOfSize:10]];
+                CGRect backRect = CGRectMake(x - strSize.width-10, y - strSize.height-2-4, strSize.width+10, strSize.height+4);
+                CGRect lastNumStringRect = CGRectMake(x - strSize.width-5, y - strSize.height-2-2, strSize.width, strSize.height);
+
+                UIBezierPath *clip = [UIBezierPath bezierPathWithRoundedRect:backRect cornerRadius:strSize.height/2];
+                [self.axisColor setFill];
+                [clip fill];
+                
+                [lastNumString drawInRect:lastNumStringRect
+                           withAttributes:@{NSForegroundColorAttributeName    : [UIColor whiteColor],
+                                            NSFontAttributeName               : [UIFont systemFontOfSize:10]}];
+            }
         }
     }];
     linePath.lineJoinStyle = kCGLineJoinRound;
-    [[UIColor blueColor]set];
+    [self.lineColor set];//线的颜色
     [linePath stroke];
     
-    [linePath addLineToPoint:CGPointMake(32.5 + (self.values.count - 1) * self.marginX , self.height)];
-    [linePath addLineToPoint:CGPointMake(32.5, self.height)];
-    [[UIColor colorWithRed:0 green:0 blue:0.9 alpha:0.5]set];
+    [linePath addLineToPoint:CGPointMake(yAxisX + margin + (self.values.count - 1) * xTittleMargin , xAxisY)];
+    [linePath addLineToPoint:CGPointMake(yAxisX + margin, xAxisY)];
+    [self.downColor set];//线下阴影颜色
     [linePath fill];
-    
-    [self.values enumerateObjectsUsingBlock:^(NSNumber *number, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(30 + idx * self.marginX, self.height - number.integerValue, 5, 5)];
-        [[UIColor redColor]set];
-        [path fill];
-    }];
-    
-    
+ 
 }
 
-//XXLazyAnyView(self.superview, baseChartCorverView, XXChartCorverView)
-//
-//XXLazyAnyView(self, chartCorverView, XXChartCorverView)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect0:(CGRect)rect {
-//    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(125, 125) radius:100 startAngle:0 endAngle:M_PI_2 clockwise:YES];
-    [path addLineToPoint:CGPointMake(125, 125)];
-    // fill:如果当前路径不是一个封闭路径,默认就会帮我们关闭路径
-    [[UIColor greenColor]setStroke];
-    [[UIColor redColor]setFill];
-    [path stroke];
-    
-    UIBezierPath *path1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(50, 50, 150, 150) cornerRadius:75];
-    [[UIColor greenColor]setStroke];
-    [[UIColor redColor]setFill];
-    [path1 stroke];
-    
-    UIBezierPath *path2 = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 150, 100)];
-    [[UIColor greenColor]setStroke];
-    [[UIColor redColor]setFill];
-    path2.lineWidth = 5;
-    [path2 stroke];
-    [path2 fill];
-
-//    CGContextAddPath(ctx, path.CGPath);
-//    CGContextAddPath(ctx, path1.CGPath);
-//    CGContextAddPath(ctx, path2.CGPath);
-//        [[UIColor greenColor]setStroke];
-//        [[UIColor redColor]setFill];
-//    
-//    CGContextDrawPath(ctx, kCGPathEOFillStroke);
-//    CGContextStrokePath(ctx);
-//    CGContextFillPath(ctx);
-//    CGContextEOFillPath(ctx);
-
-    
-    UIBezierPath *path3 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(50, 250, 150, 150) cornerRadius:75];
-//    [[UIColor purpleColor]setFill];
-//    CGContextAddPath(ctx, path3.CGPath);
-//
-//        CGContextFillPath(ctx);
-    [path3 fill];
-
-
-}
 
 
 @end

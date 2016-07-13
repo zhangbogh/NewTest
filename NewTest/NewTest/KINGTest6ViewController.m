@@ -16,6 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *string = @"种过中国肿过zhongguoxxx";
+    CFStringRef cfstring = CFStringCreateWithCString(NULL, string.UTF8String, 0);
+    CFMutableStringRef string1 = CFStringCreateMutableCopy(NULL, 0, cfstring);
+//    CFMutableStringRef string1 = CFStringCreateMutableCopy(NULL, 0, CFSTR("中国"));
+    CFStringTransform(string1, NULL, kCFStringTransformStripDiacritics, NO);
+    NSLog(@"%@",string1);
+    
+    
+    NSMutableString *mutableStr = [NSMutableString stringWithString:string];
+    CFStringTransform((CFMutableStringRef)mutableStr, NULL, kCFStringTransformToLatin, NO);
+    NSLog(@"%@",mutableStr);
+
     // Do any additional setup after loading the view.
 }
 

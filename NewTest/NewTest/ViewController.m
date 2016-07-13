@@ -36,11 +36,11 @@
                        @"1.textField和textView",//textField可以用addtargat添加监控事件    textView需要用代理回调监控事件   键盘研究了下
                        @"2.检验自己的框架",
                        @"3.hud+网络连接检查",
-                       @"4.预留",
+                       @"4.上下拉刷新",
                        @"5.折线统计图",
-                       @"6.预留",
-                       @"7.预留",
-                       @"8.预留",
+                       @"6.汉字转拼音",
+                       @"7.fmdb",
+                       @"8.pop",
                        @"9.预留",
                        @"10.预留"];
     
@@ -48,11 +48,11 @@
                              @"KINGTest1ViewController",
                              @"KINGTest2ViewController",
                              @"KINGTest3ViewController",//hud+网络连接检查
-                             @"KINGTest4ViewController",
+                             @"KINGTest4ViewController",//上下拉刷新
                              @"KINGTest5ViewController",//折线统计图
-                             @"KINGTest6ViewController",
-                             @"KINGTest7ViewController",
-                             @"KINGTest8ViewController",
+                             @"KINGTest6ViewController",//汉字转拼音
+                             @"KINGTest7ViewController",//fmdb
+                             @"KINGTest8ViewController",//pop
                              @"KINGTest9ViewController",
                              @"KINGTest10ViewController"];
 

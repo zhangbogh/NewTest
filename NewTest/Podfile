@@ -9,5 +9,7 @@ pod 'JSONKit-NoWarning', '~> 1.2'
 pod 'MJExtension', '~> 3.0.10'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
+pod 'MJRefresh'
+pod 'pop'
 pod 'XXLazyKit', :git => 'https://github.com/PittWong/XXLazyKit.git'
 

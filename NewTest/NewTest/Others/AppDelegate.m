@@ -22,6 +22,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    [sb instantiateViewControllerWithIdentifier:@"test"];
 
     return YES;
 }

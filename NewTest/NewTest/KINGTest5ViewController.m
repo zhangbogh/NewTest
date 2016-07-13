@@ -19,10 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.frame = CGRectMake(0, 64, self.view.width, self.view.height - 64);
+    self.view.backgroundColor = [UIColor yellowColor];
+    self.chartView.frame = CGRectMake(0, 64, self.view.width, 100);
 //    self.chartCorverView.frame = CGRectMake(0, 64, self.view.width, self.view.height - 64);
-    self.chartView.backgroundColor = [UIColor whiteColor];
+    self.chartView.backgroundColor = [UIColor yellowColor];
     // Do any additional setup after loading the view.
 }
 
